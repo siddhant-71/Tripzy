@@ -1,0 +1,164 @@
+.loginContainer{
+    padding: 20px 0;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 100vh;
+}
+.Container{
+    border: 3px solid rgb(179, 224, 245);
+    border-radius: 20px;
+    width: 30%;
+    height: 80%;
+    margin: auto auto;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Container2{
+    border: 3px solid rgb(179, 224, 245);
+    border-radius: 20px;
+    width: 30%;
+    height: 80%;
+    margin: auto auto;
+    display: flex;
+    min-width: 400px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Container3{
+    border: 3px solid rgb(179, 224, 245);
+    border-radius: 20px;
+    width: 30%;
+    height: 80%;
+    margin: auto auto;
+    display: flex;
+    min-width: 400px;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Container4{
+    border: 3px solid rgb(179, 224, 245);
+    border-radius: 20px;
+    width: 30%;
+    height: 80%;
+    min-width: 400px;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.Container h2{
+    font-size: 35px;
+    font-family: cursive;
+    margin: 10px 0;
+    color: rgb(216, 214, 214);
+}
+.Container2 h2{
+    font-size: 35px;
+    font-family: cursive;
+    margin: 10px 0;
+    color: rgb(216, 214, 214);
+}
+.Container3 h2{
+    font-size: 35px;
+    font-family: cursive;
+    margin: 10px 0;
+    color: rgb(216, 214, 214);
+}
+.Container4 h2{
+    font-size: 35px;
+    font-family: cursive;
+    margin: 10px 0;
+    color: rgb(216, 214, 214);
+}
+input{
+    color: rgb(193, 192, 192);
+    outline: none;
+    background-color: rgb(30, 51, 69);
+    border: 1px solid white;
+    font-family: cursive;
+    border-radius: 10px;
+    padding-left: 15px;
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+.Container button,.Container2 button{
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgb(73, 180, 73);
+    color: black;
+    font-family: cursive;
+    font-size: 20px;
+    border: 2px solid green;
+    width: 60%;
+    margin: 0 auto;
+}
+.otp{
+    width: 20%;
+    height: 30px;
+    background-color: rgb(171, 142, 171);
+    border-radius: 10px;
+    outline: none;
+    color: black;
+    border: 2px solid green;
+    font-family: cursive;
+    margin: 0 auto;
+}
+.submit{
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgb(73, 180, 73);
+    color: black;
+    font-family: cursive;
+    font-size: 20px;
+    border: 2px solid green;
+    width: 60%;
+    margin: 0 auto;
+}
+.Container4 button{
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    background-color: rgb(97, 147, 192);
+    color: black;
+    font-family: cursive;
+    font-size: 20px;
+    border: 2px solid green;
+    width: 60%;
+    margin: 0 auto;
+}
+.forgot{
+    font-family:cursive;
+    text-decoration: none;
+    width: 50%;
+    margin: 0 5%;
+    align-self: end;
+}
+.register{
+    color: rgb(196, 200, 202);
+    font-family:cursive;
+}
+.register1{
+    text-decoration: none;
+}
+.Name{
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin: 0 auto;
+    gap: 15px;
+}
+.Name input{ 
+    width: 55%;
+}
+.twoOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: cursive;
+}

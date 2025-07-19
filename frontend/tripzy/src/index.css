@@ -17,5 +17,5 @@ body {
   box-sizing: border-box;
   background: radial-gradient(circle at center,rgb(65, 96, 147),rgb(32, 44, 75));
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 120vh;
 }

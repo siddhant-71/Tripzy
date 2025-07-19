@@ -1,0 +1,91 @@
+.dates{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.date-box{
+    background-color: rgb(16, 16, 16);
+    height: 100px;
+    width: 11%;
+    border: 1px solid white;
+}
+.FlightContainer{
+    font-family: cursive;
+    background-color: rgb(2, 26, 46);
+    width: 89%;
+    margin: 10px auto;
+    border: 3px solid rgb(113, 113, 113);
+    border-radius: 10px;
+    display: flex;
+    color:rgb(210, 208, 208);
+    flex-direction: column;
+    justify-content: center;
+}
+.FlightContainer1{
+    font-family: cursive;
+    background-color: rgb(2, 26, 46);
+    width: 89%;
+    margin: 10px auto;
+    border-radius: 10px;
+    display: flex;
+    color:rgb(210, 208, 208);
+    flex-direction: row;
+    justify-content: center;
+}
+.FlightName{
+    width: 15%;
+}
+.DepTime{
+    width: 15%;
+}
+.TimeToFly{
+    width: 15%;
+}
+.TimeToFly h4{
+    margin: 10px;
+}
+.ArrivalTime{
+    width: 20%;
+}
+.Price{
+    width: 20%;
+}
+.Btn{
+    align-content: center;
+    width: 12%;
+}
+.Btn button{
+    border: 1px solid wheat;
+    border-radius: 10px;
+    background-color: rgb(249, 88, 2);
+    width: 100%;
+    height: 35px;
+}
+.Btn p{
+    color: rgb(249,88,2);
+}
+.dropbox{
+    font-family: cursive;
+    width: 89%;
+    margin: 0 auto;
+}
+.Details{
+    margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+.FromDetail{
+    width: 20%;
+}
+.TimeDetail{
+    width: 20%;
+}
+.ToDetail{
+    width: 20%;
+}
+.Baggage{
+    width: 30%;
+}

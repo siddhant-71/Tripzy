@@ -1,0 +1,46 @@
+.border{
+    padding-top: 100px;
+    width: 70%;
+    margin: 0 auto;
+    background: none;
+}
+.request{
+    border: 2px solid rgb(13,17,22);
+    border-radius: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.request input{
+    background-color: #22569e;
+    border: none;
+    padding-left: 20px;
+    border-radius: 9px;
+    height: 40%;
+    color: black;
+}
+.request input::placeholder{
+    color: rgb(226, 214, 214);
+    font-size: 16px;
+}
+.destReq{
+    width: 65%;
+}
+.noOfDays{
+    width: 15%;
+}
+.request button{
+    border: none;
+    background: none;
+    border-radius: 9px;
+    height: 40%;
+}
+.response{
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: green;
+}

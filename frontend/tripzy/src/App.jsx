@@ -1,23 +1,23 @@
 import './App.css'
 import {Route,Routes,BrowserRouter} from 'react-router-dom'
 import Home from './assets/pages/Home.jsx'
+import Login from './assets/pages/Login.jsx'
+import ProtectedRoute from './assets/pages/ProtectedRoute.jsx'
+import Ai from './assets/Components/AI/AI.jsx'
+import MyTrips from './assets/Components/MyTrips/MyTrips.jsx'
+import Flights from './assets/Components/Flights/Flights.jsx'
+import TripContainer from './assets/Components/MyTrips/TripContainer.jsx'
 function App() {
-
   return (
-    // <BrowserRouter>
-    //   <Routes>
-    //       <Route path="/" element={<Login/>}/>
-    //       <Route path="/register" element={<Register/>}/>
-    //       <Route path="/dashboard" element={  <ProtectedRoute> <Dashboard/> </ProtectedRoute>} >
-    //         <Route index element={<DashboardData/>}/> 
-    //         <Route path='restaurant' element={<Restaurants/>}/>
-    //         <Route path='track' element={<TrackOrder/>}/>
-    //         <Route path='history' element={<OrderHistory/>}/>
-    //         <Route path='cart' element={<Cart/>}/>
-    //       </Route>
-    //   </Routes>
-    // </BrowserRouter>
-    <Home/>
+      <Routes>
+          <Route path="/" element={<Login/>}/>
+          <Route path="/Home" element={  <ProtectedRoute> <Home/> </ProtectedRoute>} >
+            <Route index element={<Home/>}/> 
+            <Route path='AskAI' element={<Ai/>}/>
+            <Route path='History' element={<MyTrips/>}/>
+            <Route path='flights' element={<Flights/>}/>
+          </Route>
+      </Routes>
   )
 }
 

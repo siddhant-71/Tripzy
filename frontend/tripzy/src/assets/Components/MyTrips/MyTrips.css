@@ -1,0 +1,77 @@
+.mytrips{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+.myTrips-navbar{
+    width: inherit;
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.myTrips-navbar div{
+    width: 33%;
+    border-left: 5px solid rgba(48, 116, 14, 0.605);
+    background-color: rgb(57, 33, 33);
+}
+.myTrips-navbar div:hover{
+    cursor: pointer;
+}
+.tripContainer{
+    background-color: black;
+}
+.tripContainer1{
+    margin: 10px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.tripContainer2{
+    display: flex;
+    flex-direction: row;
+}
+.tripContainer2 h2,h3{
+    margin: 3px 0;
+}
+.drop:hover{
+    cursor: pointer;    
+}
+.first{
+    width: 17%;
+}
+.from{
+    width: 26%;
+}
+.divider{
+    width:14%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.divider p{
+    margin: 0;
+}
+.to{
+    width: 26%;
+}
+.total{
+    width: 17%;
+    align-content: center;
+}
+.total .icon{
+    color: green;
+}
+.details{
+    display: flex;
+    padding: 0 30px 0 10px;
+    background-color: red;
+    justify-content: space-between;
+    align-items: center;
+}
+.details h3,p{
+    margin: 3px 0;
+}
