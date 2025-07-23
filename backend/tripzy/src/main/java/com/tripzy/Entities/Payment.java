@@ -25,7 +25,12 @@ public class Payment {
 
     private String paymentReference;
 
+    private String RazorpayPaymentID;
+
+    private String RazorpayOrderID;
+
     private double amount;
+
     private Currency currency;
 
     @Enumerated(EnumType.STRING)

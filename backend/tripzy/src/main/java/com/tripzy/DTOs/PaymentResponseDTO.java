@@ -15,6 +15,7 @@ public class PaymentResponseDTO {
     private Currency currency;
     @Enumerated(EnumType.STRING)
     private PaymentStatus paymentStatus;
+    private String RazorpayOrderID;
     private double amount;
     private LocalDateTime paymentTime;
 }

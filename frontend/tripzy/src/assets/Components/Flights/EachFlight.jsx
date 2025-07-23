@@ -3,62 +3,89 @@ import "./Flights.css"
 import { IoIosArrowDropup } from "react-icons/io";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { FaLongArrowAltRight } from "react-icons/fa";
-const EachFlight = () => {
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+const EachFlight = ({flight}) => {
     const [drop, setdrop] = useState(false)
+    const navigate =useNavigate();
+    let total=flight.totalDurationInMinutes;
+    let hr=Math.floor(total/60);
+    let min=total%60;
+    const timeToFly=`${hr}h ${min}m`;
+
+    const bookingRequestDTO={
+        userId:localStorage.getItem("userId"),
+        flightId:flight.flightNumber,
+        departureTime:flight.departureTime,
+        arrivalTime:flight.arrivalTime,
+        source :flight.departureAirportName,
+        destination :flight.arrivalAirportName,
+        seatNumber:12,
+        seatClass:'A',
+        totalPrice:flight.price
+    }
+
+    async function bookFlight(){
+        await axios.post("http://localhost:8080/api/bookings/initiate",bookingRequestDTO).then(response=>{navigate('/payment',{state:{bookingResponse:response.data}}); console.log(response.data)}).catch(err=>{console.log(err)});
+    }
+
   return (
     <div className='FlightContainer'>
         <div className='FlightContainer1'>
+            <div>
+                <img src={flight.logo} alt="" />
+            </div>
             <div className='FlightName'>
-                <h3>SPICE JET</h3>
-                <h4>SG9965</h4>
+                <h3>{flight.airline}</h3>
+                <h4>{flight.flightNumber}</h4>
             </div>
             <div className='DepTime'>
-                <h3>20:00</h3>
-                <h3>DEL</h3>
+                <h3>{flight.departureTime.substring(11,16)}</h3>
+                <h3>{flight.departureAirportCode}</h3>
             </div>
             <div className='TimeToFly'>
-                <h3>2h 35m</h3>
+                <h3>{timeToFly}</h3>
                 <hr style={{width:"80%"}}/>
                 <p>Non-Stop</p>
             </div>
             <div className='ArrivalTime'>
-                <h3>04:30</h3>
-                <h3>BOM</h3>
+                <h3>{flight.arrivalTime.substring(11,16)}</h3>
+                <h3>{flight.arrivalAirportCode}</h3>
             </div>
             <div className='Price'>
-                <h2>₹ 4330 </h2>
+                <h2>₹ {flight.price} </h2>
             </div>
             <div className='Btn'>
-                <button>BOOK</button>
-                <p>Flight Details{!drop && <IoIosArrowDropdown onClick={()=>setdrop(!drop)} size={20} />}{drop && <IoIosArrowDropup onClick={()=>setdrop(!drop)} size={20}/>}</p>
+                <button onClick={bookFlight}>BOOK</button>
+                <p onClick={()=>setdrop(!drop)}>Flight Details{!drop && <IoIosArrowDropdown size={20} />}{drop && <IoIosArrowDropup size={20}/>}</p>
             </div>
         </div>
         {drop && <div className='dropbox'>
             <div>
-                <h1 style={{margin:"0"}}>NEW DELHI <FaLongArrowAltRight/> MUMBAI</h1>
-                <h3>SUN 20 JUL · NON STOP · 2h 15m · Economy</h3>
+                <h1 style={{margin:"0"}}>{flight.departureAirportCode}<FaLongArrowAltRight/>{flight.arrivalAirportCode}</h1>
+                <h3>SUN {flight.departureTime.substring(8,10)} JUL · NON STOP · {timeToFly} · Economy</h3>
             </div>
             <div  style={{paddingBottom:"20px"}}>
-                <h2>Spice Jet | SG 9965</h2>
+                <h2>{flight.airline} | {flight.flightNumber}</h2>
             </div>
             <div className='Details'>
                 <div className='FromDetail'>
-                    <p>Sun 20 Jul</p>
-                    <h2>02:15</h2>
-                    <h3>DEL - New Delhi</h3>
-                    <p>Indira Gandhi International Airport</p>
-                    <p>Terminal 1D</p>
+                    <p>Sun {flight.departureTime.substring(8,10)} Jul</p>
+                    <h2>{flight.departureTime.substring(11,16)}</h2>
+                    <h3>{flight.departureAirportCode}</h3>
+                    <p>{flight.departureAirportName}</p>
+                    <p>Terminal Yet to Decide</p>
                 </div>
                 <div className='TimeDetail'>
-                    <h2>2h 15m</h2>
+                    <h2>{timeToFly}</h2>
                     <hr width="80%"/>
                 </div>
                 <div className='ToDetail'>
-                    <p>Sun 20 Jul</p>
-                    <h2>04:30</h2>
-                    <h3>BOM - MUMBAI</h3>
-                    <p>Chhatrapati Shivaji Maharaj International Airport</p>
-                    <p>Terminal 1</p>
+                    <p>Sun {flight.arrivalTime.substring(8,10)} Jul</p>
+                    <h2>{flight.arrivalTime.substring(11,16)}</h2>
+                    <h3>{flight.arrivalAirportCode}</h3>
+                    <p>{flight.arrivalAirportName}</p>
+                    <p>Terminal Yet to Decide</p>
                 </div>
                 <div className='Baggage'>
                     <h2>Baggage</h2>

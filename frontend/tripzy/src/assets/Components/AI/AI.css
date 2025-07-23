@@ -1,8 +1,27 @@
 .border{
-    padding-top: 100px;
-    width: 70%;
+    padding-top: 10px;
+    width: 85%;
     margin: 0 auto;
     background: none;
+}
+.aiHome{
+    padding-top: 100px;
+    background-color: rgba(3, 69, 170, 0.147);
+
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: flex-start;
+    color: black;
+}
+.aiHome p{
+    font-weight: 700;
+    font-size: 25px;
+}
+.aiHome p:hover{
+    cursor: pointer;
+}
+.aiHome .icon:hover{
+    cursor: pointer;
 }
 .request{
     border: 2px solid rgb(13,17,22);
@@ -42,5 +61,28 @@
     margin-top: 20px;
     padding: 15px;
     border: 1px solid black;
-    background-color: green;
+    background-color: rgba(0, 96, 128, 0.336);
+    justify-items: center;
+}
+.summary{
+    margin: 20px 0px;
+    color: black;
+    font-weight: 550;
+    font-size: 20px;
+    font-family: cursive;
+    background-color: rgb(0, 149, 255);
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 30%;
+}
+.summ{
+    justify-items: center;
+     margin: 20px 0px;
+    color: black;
+    font-weight: 550;
+    font-size: 18px;
+    font-family: cursive;
+    background-color: rgba(0, 149, 255, 0.523);
+    border-radius: 10px;
+    border: 2px solid black;
 }

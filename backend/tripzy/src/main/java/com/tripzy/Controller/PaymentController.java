@@ -1,6 +1,9 @@
 package com.tripzy.Controller;
 
 
+import com.tripzy.Configurations.RequiredDTO.PaymentRequest;
+import com.tripzy.Configurations.RequiredDTO.PaymentResponse;
+import com.tripzy.Configurations.RequiredDTO.RazorpayResponseDTO;
 import com.tripzy.DTOs.PaymentRequestDTO;
 import com.tripzy.DTOs.PaymentResponseDTO;
 import com.tripzy.Entities.Payment;
@@ -13,26 +16,35 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/payments")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 public class PaymentController {
     private final PaymentService paymentService;
     private final PaymentRepository paymentRepository;
 
     @PostMapping("/initiate")
-    public ResponseEntity<PaymentResponseDTO> initiatePayment(@RequestBody PaymentRequestDTO requestDTO){
-        PaymentResponseDTO ans=paymentService.initiatePayment(requestDTO);
+    public ResponseEntity<PaymentResponse> initiatePayment(@RequestBody PaymentRequest request){
+        PaymentResponse ans=paymentService.initiatePayment(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(ans);
     }
-    @PostMapping("/complete/{id}")
-    public ResponseEntity<PaymentResponseDTO> completePayment(@PathVariable("id") Long bookingId,@RequestParam String status){
-        Payment payment=paymentService.getPaymentByBookingId(bookingId).orElseThrow(()->new RuntimeException("Payment not found"));
-        paymentService.completePayment(payment,PaymentStatus.valueOf(status));
-        return ResponseEntity.ok(mapToPaymentResponse(payment));
+    @PostMapping("/verify")
+    public ResponseEntity<String> verifyPayment(@RequestBody RazorpayResponseDTO responseDTO) {
+        boolean isVerified = paymentService.verifyPayment(responseDTO);
+
+        if (isVerified) {
+            return ResponseEntity.ok("Success");
+        } else {
+            return ResponseEntity.ok("FAILED");
+        }
     }
+
+
     @GetMapping("/booking/{id}")
     public ResponseEntity<PaymentResponseDTO> getPaymentByBookingId(@PathVariable("id") Long bookingId){
         Optional<Payment> ans=paymentService.getPaymentByBookingId(bookingId);

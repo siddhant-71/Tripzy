@@ -3,6 +3,7 @@ package com.tripzy.Controller;
 import com.tripzy.DTOs.BookingRequestDTO;
 import com.tripzy.DTOs.BookingResponseDTO;
 import com.tripzy.Entities.Booking;
+import com.tripzy.Enums.FlightBookingStatus;
 import com.tripzy.Service.Interface.BookingService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/bookings")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:5173")
 public class BookingController {
 
     private final BookingService bookingService;
@@ -22,6 +24,11 @@ public class BookingController {
     public ResponseEntity<BookingResponseDTO> initiateBooking(@RequestBody BookingRequestDTO bookingRequestDTO){
         Booking booking=bookingService.createBooking(bookingRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(mapBookingToResponse(booking));
+    }
+    @PostMapping("/{bookingId}")
+    public ResponseEntity<String> completeBooking(@PathVariable("bookingId")Long bookingId){
+        bookingService.completeBooking(bookingId);
+        return ResponseEntity.ok("Booked");
     }
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<BookingResponseDTO>> getAllBookingsByUserId(@PathVariable("userId")Long userId){

@@ -1,17 +1,40 @@
 import React, { useState } from 'react'
 import "./Pages.css"
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import logo from "../Images/Logo.png"
+import axios from 'axios'
 const Login = () => {
     const [Container, setContainer] = useState(1)
+    const [loginInput, setloginInput] = useState("")
+    const [loginPass, setloginPass] = useState("")
+    const navigate=useNavigate();
+
+    async function loginNow() {
+        try{
+            const response=await axios.post("http://localhost:8080/api/user/login",null,{
+                params:{
+                    email:loginInput,
+                    password:loginPass
+                }
+            });
+            console.log(response.data.jwtToken);
+            localStorage.setItem("token",response.data.jwtToken);
+            localStorage.setItem("userId",response.data.userId);
+            navigate("/Home")
+        }
+        catch(e){
+            console.log("Login Failed",e);
+            alert("Invalid Username or Password")
+        }
+    }
   return (
     <div className='loginContainer'>
         {Container==1 && <div className='Container'>
             <h2>LOGIN</h2>
-            <input type="text" placeholder='Enter Email Or Phone Number' name="" id="" />
-            <input type="text" placeholder='Enter Password' name="" id=""/>
+            <input type="text" placeholder='Enter Email Or Phone Number' name="loginInput" id="loginInput"  required value={loginInput} onChange={(e)=>setloginInput(e.target.value)}/>
+            <input type="text" placeholder='Enter Password' name="loginPass" id="loginPass" required value={loginPass} onChange={(e)=>setloginPass(e.target.value)}/>
             <Link className='forgot' onClick={()=>setContainer(3)}>Forgot Password ?</Link>
-            <button>LOGIN</button>
+            <button onClick={loginNow}>LOGIN</button>
             <p className='register'>ALREADY HAVE AN ACCOUNT ?  <Link onClick={()=>setContainer(2)} className='register1'>Register Here</Link></p>
         </div>}
         {Container==2 && <div className='Container2'>

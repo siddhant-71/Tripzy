@@ -45,4 +45,9 @@ public class Booking {
     private FlightBookingStatus bookingStatus;
 
     private String paymentReference;
+
+    @PrePersist
+    protected void onCreate(){
+        this.bookingTime=LocalDateTime.now();
+    }
 }

@@ -1,8 +1,28 @@
 .dates{
-    padding-top: 100px;
+    padding-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.home{
+    background-color: rgba(0, 85, 255, 0.326);
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.7);
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding-top: 100px;
+}
+.home p{
+    color: black;
+    font-weight: 700;
+    font-size: 30px;
+}
+.home .arrow:hover{
+    cursor: pointer;
+}
+.home p:hover{
+    cursor: pointer;
 }
 .date-box{
     background-color: rgb(16, 16, 16);
@@ -64,6 +84,9 @@
 }
 .Btn p{
     color: rgb(249,88,2);
+}
+.Btn p:hover{
+    cursor: pointer;
 }
 .dropbox{
     font-family: cursive;

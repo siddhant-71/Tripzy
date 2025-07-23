@@ -3,6 +3,26 @@
     margin: 0 auto;
     padding-top: 100px;
 }
+.homeMyTrips{
+    background-color: rgba(0, 85, 255, 0.138);
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.7);
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    width: 150px;
+}
+.homeMyTrips p{
+    color: black;
+    font-weight: 700;
+    font-size: 30px;
+}
+.homeMyTrips .arrow:hover{
+    cursor: pointer;
+}
+.homeMyTrips p:hover{
+    cursor: pointer;
+}
 .myTrips-navbar{
     width: inherit;
     background-color: green;
